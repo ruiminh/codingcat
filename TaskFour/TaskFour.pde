@@ -1,52 +1,49 @@
-/*For all exercises in Task 4, you are allowed to complete them with arrays of a fixed size. 
-But do consider how the functions you write in 4.b, 4.c, 4.d, 4.e would work, if the array received as a parameter would not have a fixed length. 
-4.a create arrays of the following type and assign it at least 3 different values: 
-    - Integer array
-    - String array
-    - boolean array*/
-void setup(){    
-    int[] nums={5,6,7};
-     
-    
-    String[] x={"abc","def","ghi"};
-    
-    
-    boolean[] y={true,false,false};
-   
+/*   4.a Write a method that takes in an integer as a parameter and prints all values 
+
+       between 0 and 100 that are divisible by the parameter received.*/
+void divisibleBy(int a){
+ for(int i=1;i<=100;i++){
+   if(i%a==0) println(a);
+ }
 }
     
-//4.b Write a function that takes in an array of strings as parameter and prints each string.
+/*b add the following array to your code: 
+int[] arr = { 1, 1, 1, 2, 2, 3, 3, 3, 4, 5, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10 }*/
 
-void printArr(String[] x){
-  for(int i=0;i<x.length;i++) {
-    print( x[i]);
+int[] arr = { 1, 1, 1, 2, 2, 3, 3, 3, 4, 5, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10 };
+//4.c Write a method that returns a random element from the above array.
+
+int randomElement(int[] nums){
+  int x=int(random(0,nums.length));
+  return nums[x];
+}
+
+/*4.d Write a function that takes an integer as a parameter and prints the number. 
+After that, it subtracts one from the input and calls itself again (recursion). 
+If the input is less than zero, it should no longer call itself.*/
+void wierdFun(int a){
+ println(a);
+ a=a-1;
+ if(a>0){
+   wierdFun(a);
+ }
+}
+
+/*4.e Write a function that takes two integers as parameters and prints both of them seperated by a tab ( \t ). 
+Then have the function calculate and print the fibunacci sequence by calling itself. 
+If the input is greater than 10000, then stop. 
+Start the function by calling it from setup with the input (1, 1). 
+(hint: fibunacci sequence: https://i.pinimg.com/236x/98/82/d5/9882d569f7e0b5665fe3b2edd5069b06.jpg )
+*/
+
+void fib1(int a, int b){
+  println(a+" \t"+b);
+  int x=a+b;
+  println(a+b);
+  if (x<1000){
+    a=b;
+    b=x;
+    fib1(a,b);
   }
-
+  
 }
-
-//4.c Write a function that receives an integer array as a parameter and returns the sum of all elements in the array.
-
-int sum(int[]nums){
-  int a=0;
- for(int i=0;i<nums.length;i++) {
-   a=a+nums[i];
-
- }
-   return a;
-
-}
-
-
-//4.d Write a function that receives an integer array as a parameter and returns the average value.  
-int average(int[]nums){
-  int b=0;
- for(int i=0;i<nums.length;i++) {
-   b=b+nums[i];   
-}
- return b/nums.length;
- }
-
-
-
-
-//4.e Consider how you could write a function that takes in an integer array as a parameter and returns the array sorted from lowest to highest value.

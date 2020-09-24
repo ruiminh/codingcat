@@ -1,19 +1,43 @@
+//1.a Create an integer array with the values { 8, 9, 1, 5, 11, 13, 7, 4, 6, 3, 12, 10, 2 }
+int []arr={8, 9, 1, 5, 11, 13, 7, 4, 6, 3, 12, 10, 2};
+//1.b implement your own sorting algorithm for the int[] array, by creating a method that takes in the int[] array and loops through it with a for loop. 
+//for every step in the for loop, you must compare the values of array[i] and array[i + 1] and swap them if [i] is greater than [i + 1]. 
+
+void sortArr(int[] nums) {
+  if (!done(nums)) {
+    for (int i=0; i<nums.length-1; i++) {
+      int tmp=0;
+      if (nums[i]>nums[i+1]) {
+        tmp=nums[i];
+        nums[i]=nums[i+1];
+        nums[i+1]=tmp;
+      }
+    }
+  } else {
+    noLoop();
+  }
+  println(nums);
+}
+
+
+
+
+
+//1.c call the method created in 1.b in a while loop from setup(), until the list is sorted. 
+
 void setup(){
- println();//a Write a function that prints an empty line and call it from setup();
- printSth("Hello world");
- tellAge("Ruimin",0);
+  size(100,100);
+  int k=0;
+  while (!done(arr)){
+  sortArr(arr);
+  }
+  k=k+1;
 }
+//1.d Add a boolean to keep track of when the list is sorted to avoid creating an infinite loop.
 
-//b Write a function that receives a string as a parameter and prints it. call this function from setup()
-void printSth(String sth){
-  String a=sth;
-  println(a);
-}
-
-//c Write a function that receives a string called "name" and an integer called "age" and call it from setup with your own name and age. Have the function print the text "My name is \<name\>, I am <age> years old".
-
-void tellAge(String name, int age){
-  String a=name;
-  int b=age;
-  println("my name is "+a+" I am "+age+" years old.");
+boolean done(int[] a) {
+  for (int j=0; j<a.length-1; j++) {
+    if (a[j]>a[j+1]) return false;
+  }
+  return true;
 }
